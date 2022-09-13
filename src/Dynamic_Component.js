@@ -21,7 +21,7 @@ function DynamicComponent({ recieveData }) {
     setValue({
       email: "",
       password: "",
-    });
+    }); 
   };
 
   return (

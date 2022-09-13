@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "bootstrap/dist/css/bootstrap.min.css";
+import { useState } from "react";
+import DynamicComponent from './Dynamic_Component';
+import TableData from "./TableData";
+// import './../src/App.css'
 function App() {
+  const [formData, setformData] = useState([])
+
+  let recieveData=(data)=>
+  {
+    // console.log('DataFromChild-->',data);
+    let formDataCopy
+    formDataCopy =[...formData]
+    formDataCopy.push(data)
+    // console.log('formDataCopy-->', formDataCopy);
+    setformData(formDataCopy)
+  }
+// console.log('formData-->',formData);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <DynamicComponent recieveData={recieveData}/>
+      <TableData data={formData}/>
     </div>
   );
 }

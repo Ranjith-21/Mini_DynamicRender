@@ -18,6 +18,10 @@ function DynamicComponent({ recieveData }) {
   let sendData = (e) => {
     e.preventDefault();
     recieveData(value)
+    setValue({
+      email: "",
+      password: "",
+    });
   };
 
   return (
